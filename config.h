@@ -1,33 +1,40 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int snap      = 64;       /* snap pixel */
 static const unsigned int gappx = 10; /*gaps between windows*/
+
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
-static const unsigned int systrayspacing = 2;   /* systray spacing */
+static const unsigned int systrayspacing = 3;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;        /* 0 means no systray */
+
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "terminus:size=13" };
-static const char dmenufont[]       = "terminus:size=13";
+
+static const char *fonts[]          = { "terminus:size=14" };
+static const char dmenufont[]       = "terminus:size=14";
 
 static const char col_kirai_primary[]       = "#5600a5";
 static const char col_kirai_secondary[]		= "#ccccff";
 static const char col_ti_blue[]				= "#8a89cb";
 static const char col_black[]				= 		"#000000";
 
+static const char col_primary[] = "#a5002e";
+static const char col_secondary[] = "#ffccf5";
+
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_black, col_kirai_primary },
-	[SchemeSel]  = { col_kirai_secondary, col_kirai_primary,  col_kirai_secondary},
+	[SchemeNorm] = { col_gray3, col_black, col_black},
+	[SchemeSel]  = { col_secondary, col_primary,  col_primary},
 };
 
 /* tagging */
@@ -69,7 +76,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_ti_blue, "-sb", col_kirai_primary, "-sf", col_kirai_secondary, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_ti_blue, "-sb", col_primary, "-sf", col_secondary, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static const Key keys[] = {
